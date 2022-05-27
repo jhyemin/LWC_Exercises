@@ -18,4 +18,16 @@ export default class Utils extends LightningElement {
         return getFieldDisplayValue(data, field) ?
         getFieldDisplayValue(data, field) : getFieldValue(data, field);
     }
+
+    static showModal = (firingComponent, header, content) => {
+        const evt = new CustomEvent('showmodal', {
+            detail: {
+                header,
+                content
+            },
+                bubbles:true,
+                composed:true
+            });
+                firingComponent.dispatchEvent(evt);
+    }
 }

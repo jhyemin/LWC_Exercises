@@ -48,4 +48,19 @@ export default class LayoutManager extends LightningElement {
 			"Don't forget to check back here for updated classschedules and assignments", 'info'
 			);
 	}
+
+	modalHeader = '';
+	modalContent ='';
+
+	handleShowModal(event) {
+		this.modalHeader = event.detail.header;
+		this.modalContent = event.detail.content;
+		const modal = this.template.querySelector('c-modal');
+		modal.show();
+	}
+
+	closeModal() {
+		const modal = this.template.querySelector('c-modal');
+		modal.hide();
+	}
 }
